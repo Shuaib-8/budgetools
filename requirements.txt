@@ -6,6 +6,7 @@ asttokens==2.0.8
 attrs==22.1.0
 backcall @ file:///home/ktietz/src/ci/backcall_1611930011877/work
 beautifulsoup4 @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_croot-15cbtalq/beautifulsoup4_1650462161715/work
+black==22.10.0
 bleach @ file:///opt/conda/conda-bld/bleach_1641577558959/work
 blinker==1.5
 cachetools==5.2.0
@@ -20,6 +21,7 @@ defusedxml @ file:///tmp/build/80754af9/defusedxml_1615228127516/work
 entrypoints @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_croot-jb01gaox/entrypoints_1650293758411/work
 executing==1.1.1
 fastjsonschema @ file:///tmp/build/80754af9/python-fastjsonschema_1620414857593/work/dist
+flake8==5.0.4
 gitdb==4.0.9
 GitPython==3.1.29
 idna==3.4
@@ -39,7 +41,9 @@ jupyterlab-pygments @ file:///tmp/build/80754af9/jupyterlab_pygments_16014907206
 jupyterlab-widgets @ file:///tmp/build/80754af9/jupyterlab_widgets_1609884341231/work
 MarkupSafe @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_12c133f5-0720-4727-9c18-599a3af825723lzwham3/croots/recipe/markupsafe_1654597866058/work
 matplotlib-inline==0.1.6
+mccabe==0.7.0
 mistune @ file:///Users/ktietz/ci_310/mistune_1643966732634/work
+mypy-extensions==0.4.3
 nbclient @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_croot-08wgx75f/nbclient_1650373566605/work
 nbconvert @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_croot-bbvj0nuy/nbconvert_1649751921251/work
 nbformat @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_croot-vjh9n2f2/nbformat_1649931502895/work
@@ -51,9 +55,11 @@ packaging @ file:///tmp/build/80754af9/packaging_1637314298585/work
 pandas==1.5.0
 pandocfilters @ file:///opt/conda/conda-bld/pandocfilters_1643405455980/work
 parso @ file:///opt/conda/conda-bld/parso_1641458642106/work
+pathspec==0.10.1
 pexpect @ file:///tmp/build/80754af9/pexpect_1605563209008/work
 pickleshare @ file:///tmp/build/80754af9/pickleshare_1606932040724/work
 Pillow==9.2.0
+platformdirs==2.5.2
 prometheus-client @ file:///opt/conda/conda-bld/prometheus_client_1643788673601/work
 prompt-toolkit==3.0.31
 protobuf==3.20.3
@@ -61,8 +67,10 @@ psutil==5.9.2
 ptyprocess @ file:///tmp/build/80754af9/ptyprocess_1609355006118/work/dist/ptyprocess-0.7.0-py2.py3-none-any.whl
 pure-eval @ file:///opt/conda/conda-bld/pure_eval_1646925070566/work
 pyarrow==9.0.0
+pycodestyle==2.9.1
 pycparser @ file:///tmp/build/80754af9/pycparser_1636541352034/work
 pydeck==0.8.0b3
+pyflakes==2.5.0
 Pygments==2.13.0
 Pympler==1.0.1
 pyparsing==3.0.9
@@ -83,6 +91,7 @@ streamlit==1.13.0
 terminado @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/croot-n1puqh63/terminado_1644395131327/work
 testpath @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_8eff48dc-c5e8-4dc1-bdf5-49b333fc562a74hpzn48/croots/recipe/testpath_1655908554731/work
 toml==0.10.2
+tomli==2.0.1
 toolz==0.12.0
 tornado==6.2
 traitlets==5.4.0
