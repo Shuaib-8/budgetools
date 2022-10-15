@@ -12,18 +12,22 @@ blinker==1.5
 cachetools==5.2.0
 certifi==2022.9.24
 cffi @ file:///Users/ktietz/ci_310/cffi_1643911190082/work
+cfgv==3.3.1
 charset-normalizer==2.1.1
 click==8.1.3
 commonmark==0.9.1
 debugpy==1.6.3
 decorator @ file:///opt/conda/conda-bld/decorator_1643638310831/work
 defusedxml @ file:///tmp/build/80754af9/defusedxml_1615228127516/work
+distlib==0.3.6
 entrypoints @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_croot-jb01gaox/entrypoints_1650293758411/work
 executing==1.1.1
 fastjsonschema @ file:///tmp/build/80754af9/python-fastjsonschema_1620414857593/work/dist
+filelock==3.8.0
 flake8==5.0.4
 gitdb==4.0.9
 GitPython==3.1.29
+identify==2.5.6
 idna==3.4
 importlib-metadata==5.0.0
 ipykernel==6.16.0
@@ -48,6 +52,7 @@ nbclient @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_c
 nbconvert @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_croot-bbvj0nuy/nbconvert_1649751921251/work
 nbformat @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_croot-vjh9n2f2/nbformat_1649931502895/work
 nest-asyncio==1.5.6
+nodeenv==1.7.0
 notebook @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_3f7fff69-9830-45da-8980-fb36e722af3e4wgyb5p_/croots/recipe/notebook_1651734541650/work
 numpy==1.23.3
 numpy-financial==1.0.0
@@ -60,6 +65,7 @@ pexpect @ file:///tmp/build/80754af9/pexpect_1605563209008/work
 pickleshare @ file:///tmp/build/80754af9/pickleshare_1606932040724/work
 Pillow==9.2.0
 platformdirs==2.5.2
+pre-commit==2.20.0
 prometheus-client @ file:///opt/conda/conda-bld/prometheus_client_1643788673601/work
 prompt-toolkit==3.0.31
 protobuf==3.20.3
@@ -78,6 +84,7 @@ pyrsistent==0.18.1
 python-dateutil @ file:///tmp/build/80754af9/python-dateutil_1626374649649/work
 pytz==2022.4
 pytz-deprecation-shim==0.1.0.post0
+PyYAML==6.0
 pyzmq==24.0.1
 requests==2.28.1
 rich==12.6.0
@@ -100,6 +107,7 @@ tzdata==2022.4
 tzlocal==4.2
 urllib3==1.26.12
 validators==0.20.0
+virtualenv==20.16.5
 wcwidth @ file:///Users/ktietz/demo/mc3/conda-bld/wcwidth_1629357192024/work
 webencodings==0.5.1
 widgetsnbextension @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/croot-ppn8qoma/widgetsnbextension_1645010005457/work
