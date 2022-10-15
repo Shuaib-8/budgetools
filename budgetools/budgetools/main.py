@@ -31,8 +31,7 @@ def monthly_amount_to_investment(
     """
     fv = desired_amount
     return -1 * (
-        npf.pmt(rate=((1 + avg_ror) ** (1 / 12) - 1), nper=12 * years, pv=0,
-                fv=fv)
+        npf.pmt(rate=((1 + avg_ror) ** (1 / 12) - 1), nper=12 * years, pv=0, fv=fv)
     )
 
 
