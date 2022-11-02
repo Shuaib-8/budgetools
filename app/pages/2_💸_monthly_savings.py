@@ -2,7 +2,7 @@ import streamlit as st
 from budgetools.main import monthly_amount_to_investment
 
 # Title to app
-st.title("Welcome to a calculator for monthly savings given financial target")
+st.title("Calculator for monthly savings based on financial target 💸")
 
 rate = st.number_input(
     "Enter assumed average rate of return (RoR)", min_value=0.00, max_value=1.00
