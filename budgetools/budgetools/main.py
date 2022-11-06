@@ -30,6 +30,13 @@ def monthly_amount_to_investment(
        years, ror, and target investment amount.
     """
     fv = desired_amount
+
+    if avg_ror < 0 or years < 0 or desired_amount < 0:
+        raise RuntimeError(
+            "No arguments in the equation should be negative, \
+            please redefine"
+        )
+
     return -1 * (
         npf.pmt(rate=((1 + avg_ror) ** (1 / 12) - 1), nper=12 * years, pv=0, fv=fv)
     )
@@ -66,6 +73,13 @@ def investment_inflation_adjustment(
     """
     pv = -1 * desired_amount
     rate = -1 * avg_inflation
+
+    if avg_inflation < 0 or years < 0 or desired_amount < 0:
+        raise RuntimeError(
+            "No arguments in the equation should be negative, \
+            please redefine"
+        )
+
     return npf.fv(rate=rate, nper=years, pv=pv, pmt=0)
 
 
