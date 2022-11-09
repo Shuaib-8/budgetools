@@ -13,12 +13,13 @@ jobs:
     defaults:
       run:
         shell: bash -l {0}
+        
     runs-on: ubuntu-latest
 
     steps:
       - uses: conda-incubator/setup-miniconda@v2
         with:
-          activate-environment: anaconda-client-env
+          activate-environment: finance_app
           environment-file: env.yml
           auto-activate-base: false
       - run: |
@@ -31,6 +32,5 @@ jobs:
 
       - name: Test with pytest
         run: | 
-          conda init bash
           conda activate finance_app
           pytest -vv
