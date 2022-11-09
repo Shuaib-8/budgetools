@@ -22,7 +22,11 @@ jobs:
           activate-environment: finance_app
           environment-file: env.yml
           auto-activate-base: false
+          use-mamba: true
+          miniforge-variant: Mambaforge
+          channels: conda-forge
       - run: |
+          conda activate finance_app
           conda info
           conda list
 
