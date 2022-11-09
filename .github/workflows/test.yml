@@ -33,6 +33,8 @@ jobs:
       - name: Install Dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: conda env create -f env.yml
+      - name: initialize conda
+        run: conda init bash
       - name: Activate Conda Environment
         run: conda activate finance_app
           # - conda activate finance_app
