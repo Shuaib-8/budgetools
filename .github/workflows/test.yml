@@ -16,21 +16,21 @@ jobs:
         
     runs-on: ubuntu-latest
 
-    steps:
-      - uses: conda-incubator/setup-miniconda@v2
-        with:
-          activate-environment: finance_app
-          environment-file: env.yml
-          auto-activate-base: false
-      - run: |
-          conda info
-          conda list
+    # steps:
+    #   - uses: conda-incubator/setup-miniconda@v2
+    #     with:
+    #       activate-environment: finance_app
+    #       environment-file: env.yml
+    #       auto-activate-base: false
+    #   - run: |
+    #       conda info
+    #       conda list
 
-      - name: Install Dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: conda env create -f env.yml
+    #   - name: Install Dependencies
+    #     if: steps.cache.outputs.cache-hit != 'true'
+    #     run: conda env create -f env.yml
 
-      - name: Test with pytest
-        run: | 
-          conda activate finance_app
-          pytest -vv
+    #   - name: Test with pytest
+    #     run: | 
+    #       conda activate finance_app
+    #       pytest -vv
