@@ -30,6 +30,7 @@ jobs:
           conda info
           conda list
           conda activate finance_app
+          cd budgetools
           pip install -e .
 
       - name: Run tests
