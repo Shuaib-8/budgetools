@@ -29,6 +29,11 @@ jobs:
       - run: |
           conda info
           conda list
+          conda activate finance_app
+          pip install -e .
+
+      - name: Run tests
+        run: |
           pytest -vv
 
     #   - name: Test with pytest
