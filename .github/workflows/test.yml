@@ -10,39 +10,27 @@ on:
 
 jobs:
   test:
+    defaults:
+      run:
+        shell: bash -l {0}
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.10"]
-      fail-fast: false
 
     steps:
-      - uses: actions/checkout@v3
-      # - name: Set up Python
-      #   uses: actions/setup-python@v4
-      #   with:
-      #     python-version: ${{ matrix.python-version }}
-      # - uses: actions/cache@v3
-      #   id: cache
-        # with:
-        #   path: ${{ env.pythonLocation }}
-        #   key: ${{ runner.os }}-python-${{ env.pythonLocation }}-${{ hashFiles('pyproject.toml') }}-test-v02
-      # - name: Install Dependencies
-      #   if: steps.cache.outputs.cache-hit != 'true'
-      #   run: pip install -e .[all,dev,doc,test]
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: anaconda-client-env
+          environment-file: env.yml
+          auto-activate-base: false
+      - run: |
+          conda info
+          conda list
+
       - name: Install Dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: conda env create -f env.yml
-      - name: initialize conda
-        run: conda init bash
-      - name: Activate Conda Environment
-        run: source activate finance_app
-          # - conda activate finance_app
-      # - name: Lint
-      #   run: bash scripts/lint.sh
-      # - name: Test
-      #   run: bash scripts/test.sh
-      # - name: Upload coverage
-      #   uses: codecov/codecov-action@v3
+
       - name: Test with pytest
-        run: pytest -vv
+        run: | 
+          conda init bash
+          conda activate finance_app
+          pytest -vv
