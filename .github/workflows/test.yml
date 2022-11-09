@@ -36,7 +36,7 @@ jobs:
       - name: initialize conda
         run: conda init bash
       - name: Activate Conda Environment
-        run: conda activate finance_app
+        run: source activate finance_app
           # - conda activate finance_app
       # - name: Lint
       #   run: bash scripts/lint.sh
