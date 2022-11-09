@@ -29,12 +29,8 @@ jobs:
       - run: |
           conda info
           conda list
-
-    #   - name: Install Dependencies
-    #     if: steps.cache.outputs.cache-hit != 'true'
-    #     run: conda env create -f env.yml
+          pytest -vv
 
     #   - name: Test with pytest
     #     run: | 
-    #       conda activate finance_app
     #       pytest -vv
