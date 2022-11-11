@@ -7,8 +7,8 @@ on:
       - main
   ##### N.B Uncomment below lines to test if needed for current pull request, otherwise leave
   ##### for now to avoid unexpected billing charges and only run on merge to dev/main ;) 
-  # pull_request:
-  #   types: [opened, synchronize]
+  pull_request:
+    types: [opened, synchronize]
 
 jobs:
   default-shell:
