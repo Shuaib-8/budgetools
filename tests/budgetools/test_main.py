@@ -7,7 +7,7 @@ from budgetools.main import investment_inflation_adjustment
 
 @dataclass
 class Params:
-    rate_of_return: int = 0
+    rate_of_return: float = 0.0
     inflation_rate: float = 0.0
     years: int = 1
     target: float = 0.0

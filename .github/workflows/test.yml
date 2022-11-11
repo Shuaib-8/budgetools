@@ -5,38 +5,38 @@ on:
     branches:
       - dev
       - main
-  pull_request:
-    types: [opened, synchronize]
+  ##### N.B Uncomment below lines to test if needed for current pull request, otherwise leave
+  ##### for now to avoid unexpected billing charges and only run on merge to dev/main ;) 
+  # pull_request:
+  #   types: [opened, synchronize]
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.10"]
-      fail-fast: false
+  default-shell:
+    name: Default shell
+    runs-on: "ubuntu-latest"
+    defaults:
+      run:
+        shell: bash -l {0}
 
     steps:
-      - uses: actions/checkout@v3
-      # - name: Set up Python
-      #   uses: actions/setup-python@v4
-      #   with:
-      #     python-version: ${{ matrix.python-version }}
-      # - uses: actions/cache@v3
-      #   id: cache
-        # with:
-        #   path: ${{ env.pythonLocation }}
-        #   key: ${{ runner.os }}-python-${{ env.pythonLocation }}-${{ hashFiles('pyproject.toml') }}-test-v02
-      # - name: Install Dependencies
-      #   if: steps.cache.outputs.cache-hit != 'true'
-      #   run: pip install -e .[all,dev,doc,test]
-      - name: Install Dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: conda env create -f env.yml
-          # - conda activate finance_app
-      # - name: Lint
-      #   run: bash scripts/lint.sh
-      # - name: Test
-      #   run: bash scripts/test.sh
-      # - name: Upload coverage
-      #   uses: codecov/codecov-action@v3
+      - uses: actions/checkout@v2
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: finance_app
+          environment-file: env.yml
+          auto-activate-base: false
+          # use-mamba: true
+          # miniforge-variant: Mambaforge
+          # channels: conda-forge
+
+      - name: Activate conda environment
+        run: |
+          conda info
+          conda list
+          conda activate finance_app
+          cd budgetools
+          pip install -e .
+
+      - name: Test with pytest
+        run: |
+          pytest -vv
