@@ -5,8 +5,8 @@ on:
     branches:
       - dev
       - main
-  pull_request:
-    types: [opened, synchronize]
+  # pull_request:
+  #   types: [opened, synchronize]
 
 jobs:
   default-shell:
