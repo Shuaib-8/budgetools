@@ -27,7 +27,7 @@ jobs:
           # miniforge-variant: Mambaforge
           # channels: conda-forge
 
-      - name: Activate conda
+      - name: Activate conda environment
         run: |
           conda info
           conda list
@@ -35,10 +35,6 @@ jobs:
           cd budgetools
           pip install -e .
 
-      - name: Run tests
+      - name: Test with pytest
         run: |
           pytest -vv
-
-    #   - name: Test with pytest
-    #     run: | 
-    #       pytest -vv
