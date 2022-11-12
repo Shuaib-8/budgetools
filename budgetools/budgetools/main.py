@@ -71,8 +71,8 @@ def investment_inflation_adjustment(
         The real (future) value (adjusted for inflation) of the target investment amount
         over the defined period.
     """
-    pv = -1 * desired_amount
-    rate = -1 * avg_inflation
+    fv = -1 * desired_amount
+    rate = avg_inflation
 
     if avg_inflation < 0 or years < 0 or desired_amount < 0:
         raise RuntimeError(
@@ -80,7 +80,7 @@ def investment_inflation_adjustment(
             please redefine"
         )
 
-    return npf.fv(rate=rate, nper=years, pv=pv, pmt=0)
+    return npf.pv(rate=rate, nper=years, pmt=0, fv=fv)
 
 
 if __name__ == "__main__":
@@ -92,5 +92,4 @@ if __name__ == "__main__":
     inflation_adjusted_target = investment_inflation_adjustment(
         avg_inflation=0.03, years=25, desired_amount=1_000_000
     )
-    # 466974.70
-    print(inflation_adjusted_target)
+    # 477605.57
