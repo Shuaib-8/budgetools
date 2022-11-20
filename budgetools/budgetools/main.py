@@ -345,11 +345,13 @@ if __name__ == "__main__":
     # ~~~~~~~~~~~~ Forecast Salary/Cost of Living ~~~~~~~~~~~~
     forecast_living = SalaryExpensesForecasting(years=15, salary=60000, tax_rate=0.3)
     forecast_living.annual_salary_growth = 0.05
+    forecast_living.monthly_salary_forecast()
     forecast_living.rent = 1200
     forecast_living.food_daily = 30
     forecast_living.entertainment = 200
     forecast_living.emergency_expenses = 250
     forecast_living.annual_inflation = 0.025
+    forecast_living.monthly_expenses_forecast()
 
     # ~~~~~~~~~~~~ Investing a Pct of Income & Net Worth ~~~~~~~~~~~~
     forecast_net_worth = NetWorthSimulation(
