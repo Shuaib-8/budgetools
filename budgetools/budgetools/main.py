@@ -292,7 +292,7 @@ class NetWorthSimulation(SalaryExpensesForecasting):
         (
             investment_deposit_forecast,
             _,
-            cumulated_savings_new,
+            cumulative_savings_new,
         ) = self.monthly_income_investment()
 
         # Create intial (empty) NumPy arrays the size of forecast months
