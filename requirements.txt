@@ -9,3 +9,4 @@ streamlit==1.13.0
 requests==2.28.1
 black==22.10.0
 flake8==5.0.4
+-e git+https://github.com/Shuaib-8/finance-budget-app.git@4ff0f91c13d322c77e267d46992e321d87831178#egg=budgetools&subdirectory=budgetools
