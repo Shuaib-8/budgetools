@@ -50,7 +50,7 @@ def test_investment_inflation_adjustment(params_3pcinf_25yrs_million):
     assert params_3pcinf_25yrs_million.target == 1_000_000
     assert params_3pcinf_25yrs_million.inflation_rate == approx(0.03)
     assert isinstance(return_value, float)
-    assert return_value == approx(466974.70)
+    assert return_value == approx(477605.57)
 
 
 @pytest.mark.parametrize(

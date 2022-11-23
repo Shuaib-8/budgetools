@@ -30,6 +30,6 @@ if st.button("Calculate the inflation adjusted investment/savings target amount"
         inflation_rate, years, target_amount
     )
     st.markdown(
-        f"""**The investment/savings amount adjusted for inflation is** \n\n
+        f"""**The investment/savings amount adjusted for inflation is:** \n\n
                 {inflation_adjusted_amount:.2f}"""
     )
