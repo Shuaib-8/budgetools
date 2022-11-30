@@ -1,4 +1,5 @@
 import streamlit as st
+
 from budgetools.budget import BaseBudget
 
 # Title to app
