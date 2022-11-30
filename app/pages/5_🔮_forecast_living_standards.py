@@ -1,7 +1,8 @@
-import streamlit as st
-from budgetools.main import SalaryExpensesForecasting
-import plotly.graph_objects as go
 import numpy as np
+import plotly.graph_objects as go
+import streamlit as st
+
+from budgetools.forecast import SalaryExpensesForecasting
 
 # Title to app
 st.title("Calculator for forecasting income and expenses growth over time 🔮")

@@ -1,5 +1,6 @@
 import streamlit as st
-from budgetools.main import investment_inflation_adjustment
+
+from budgetools.investment import investment_inflation_adjustment
 
 # Title to app
 st.title("Calculator for inflation adjusted savings/investment goal 📉")

@@ -1,5 +1,6 @@
 import streamlit as st
-from budgetools.main import monthly_amount_to_investment
+
+from budgetools.investment import monthly_amount_to_investment
 
 # Title to app
 st.title("Calculator for monthly savings based on financial target 💸")

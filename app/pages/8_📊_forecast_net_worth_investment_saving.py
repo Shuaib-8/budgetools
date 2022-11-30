@@ -1,7 +1,8 @@
-import streamlit as st
-from budgetools.main import NetWorthSimulation
-import plotly.graph_objects as go
 import numpy as np
+import plotly.graph_objects as go
+import streamlit as st
+
+from budgetools.forecast import NetWorthSimulation
 
 # Title to app
 st.title(

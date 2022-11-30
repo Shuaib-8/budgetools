@@ -1,8 +1,10 @@
 from pytest import approx  # Used for float comparisons
 import pytest
 from dataclasses import dataclass
-from budgetools.main import monthly_amount_to_investment
-from budgetools.main import investment_inflation_adjustment
+from budgetools.investment import (
+    investment_inflation_adjustment,
+    monthly_amount_to_investment,
+)
 
 
 @dataclass

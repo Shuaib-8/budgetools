@@ -1,5 +1,5 @@
 import streamlit as st
-from budgetools.main import BaseBudget
+from budgetools.budget import BaseBudget
 
 # Title to app
 st.title("Calculator for a basic monthly budget 📝")
