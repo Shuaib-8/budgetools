@@ -1,89 +1,17 @@
 from pathlib import Path
-import numpy_financial as npf
+
+from budgetools.budget import BaseBudget
+from budgetools.forecast import NetWorthSimulation, SalaryExpensesForecasting
+from budgetools.investment import (
+    investment_inflation_adjustment,
+    monthly_amount_to_investment,
+)
 
 path = Path(__file__).resolve().parents[1] / "src"
 
 
-def monthly_amount_to_investment(
-    avg_ror: float, years: int, desired_amount: int
-) -> float:
-    """
-    A function utility that computes the sum of money needed to be
-    invested (every month) to reach a desired
-    target amount after a given period of time.
-
-    Parameters
-    ----------
-    avg_ror : float
-        Average rate of return (RoR) that is assumed for the given investment
-        allocation to be growing over a period of time (years).
-    years : int
-        Number of years an individual will consistently invest.
-    desired_amount : int
-        The sum of money accumulated (at the end of the term) that an
-        individual aims to achieve.
-
-    Returns
-    -------
-    float
-       The monthly amount needed to consistently invest based on setting of
-       years, ror, and target investment amount.
-    """
-    fv = desired_amount
-
-    if avg_ror < 0 or years < 0 or desired_amount < 0:
-        raise RuntimeError(
-            "No arguments in the equation should be negative, \
-            please redefine"
-        )
-
-    return -1 * (
-        npf.pmt(rate=((1 + avg_ror) ** (1 / 12) - 1), nper=12 * years, pv=0, fv=fv)
-    )
-
-
-def investment_inflation_adjustment(
-    avg_inflation: float, years: int, desired_amount: int
-) -> float:
-    """
-    A function utility that computes the inflation adjusted target investment amount
-    over a given defined period of time.
-    The average inflation rate can be assumed from indicators such as
-    the Consumer Price Index (CPI)
-    for the given time period and the country of which the currency unit is denominated
-    in e.g assuming the investment is in USD, you'll want to take the CPI figures
-    published by the U.S Central Bank or a given Statistical Agency.
-
-    Parameters
-    ----------
-    avg_inflation : float
-        Average rate of inflation. Assumed to be taken from a price index e.g. CPI
-        over a period of time (years).
-    years : int
-        Number of years an individual will consistently invest.
-    desired_amount : int
-        The sum of money accumulated (at the end of the term) that an
-        individual aims to achieve.
-
-    Returns
-    -------
-    float
-        The real (future) value (adjusted for inflation) of the target investment amount
-        over the defined period.
-    """
-    pv = -1 * desired_amount
-    rate = -1 * avg_inflation
-
-    if avg_inflation < 0 or years < 0 or desired_amount < 0:
-        raise RuntimeError(
-            "No arguments in the equation should be negative, \
-            please redefine"
-        )
-
-    return npf.fv(rate=rate, nper=years, pv=pv, pmt=0)
-
-
 if __name__ == "__main__":
+    # ~~~~~~~~~~~~ Investment Utilities ~~~~~~~~~~~~
     amount = monthly_amount_to_investment(
         avg_ror=0.07, years=25, desired_amount=1_000_000
     )
@@ -92,5 +20,47 @@ if __name__ == "__main__":
     inflation_adjusted_target = investment_inflation_adjustment(
         avg_inflation=0.03, years=25, desired_amount=1_000_000
     )
-    # 466974.70
-    print(inflation_adjusted_target)
+    # 477605.57
+
+    # ~~~~~~~~~~~~ Basic Budget ~~~~~~~~~~~~
+    base = BaseBudget(salary=60000, tax_rate=0.4)
+    base.rent = 1200
+    base.food_daily = 10
+    base.entertainment = 200
+    base.emergency_expenses = 250
+
+    # ~~~~~~~~~~~~ Forecast Salary/Cost of Living ~~~~~~~~~~~~
+    forecast_living = SalaryExpensesForecasting(years=15, salary=60000, tax_rate=0.3)
+    forecast_living.annual_salary_growth = 0.05
+    forecast_living.monthly_salary_forecast()
+    forecast_living.rent = 1200
+    forecast_living.food_daily = 30
+    forecast_living.entertainment = 200
+    forecast_living.emergency_expenses = 250
+    forecast_living.annual_inflation = 0.025
+    forecast_living.monthly_expenses_forecast()
+
+    # ~~~~~~~~~~~~ Investing a Pct of Income & Net Worth ~~~~~~~~~~~~
+    forecast_net_worth = NetWorthSimulation(
+        years=25, salary=60000, tax_rate=0.3, monthly_investment_pct=0.3
+    )
+    forecast_net_worth.rent = 1200
+    forecast_net_worth.food_daily = 30
+    forecast_net_worth.entertainment = 200
+    forecast_net_worth.emergency_expenses = 250
+    forecast_net_worth.annual_inflation = 0.025
+    forecast_net_worth.annual_salary_growth = 0.05
+    forecast_net_worth.annual_investment_return = 0.07
+    final_net_worth, cumulative_savings = forecast_net_worth.savings_forecast()
+
+    (
+        investment_deposit_forecast,
+        savings_forecast_post_investment,
+        cumulative_savings_new,
+    ) = forecast_net_worth.monthly_income_investment()
+
+    (
+        cumulated_savings_new,
+        investment_portfolio,
+        net_worth,
+    ) = forecast_net_worth.net_worth_savings_investments()

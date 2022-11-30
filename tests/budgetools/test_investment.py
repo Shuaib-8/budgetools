@@ -1,8 +1,10 @@
 from pytest import approx  # Used for float comparisons
 import pytest
 from dataclasses import dataclass
-from budgetools.main import monthly_amount_to_investment
-from budgetools.main import investment_inflation_adjustment
+from budgetools.investment import (
+    investment_inflation_adjustment,
+    monthly_amount_to_investment,
+)
 
 
 @dataclass
@@ -50,7 +52,7 @@ def test_investment_inflation_adjustment(params_3pcinf_25yrs_million):
     assert params_3pcinf_25yrs_million.target == 1_000_000
     assert params_3pcinf_25yrs_million.inflation_rate == approx(0.03)
     assert isinstance(return_value, float)
-    assert return_value == approx(466974.70)
+    assert return_value == approx(477605.57)
 
 
 @pytest.mark.parametrize(
