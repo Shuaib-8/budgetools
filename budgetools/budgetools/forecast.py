@@ -31,12 +31,14 @@ class SalaryExpensesForecasting(BaseBudget):
         self._annual_inflation = inflation_value
 
     def monthly_salary_forecast(self):
-
+        MONTHS_PER_YEAR = 12
         # Take the years and convert to months as a forecast parameter
-        forecast_months = 12 * self.years
+        forecast_months = MONTHS_PER_YEAR * self.years
 
         # Converting from an annual rate to a periodic rate
-        monthly_salary_growth = (1 + self._annual_salary_growth) ** (1 / 12) - 1
+        monthly_salary_growth = (1 + self._annual_salary_growth) ** (
+            1 / MONTHS_PER_YEAR
+        ) - 1
 
         # Forecast cumulative salary growth (monthly)
         cumulative_salary_growth_forecast = np.cumprod(
@@ -51,12 +53,12 @@ class SalaryExpensesForecasting(BaseBudget):
         return salary_forecast
 
     def monthly_expenses_forecast(self):
-
+        MONTHS_PER_YEAR = 12
         # Take the years and convert to months as a forecast parameter
-        forecast_months = 12 * self.years
+        forecast_months = MONTHS_PER_YEAR * self.years
 
         # Converting from an annual rate to a periodic rate
-        monthly_inflation = (1 + self.annual_inflation) ** (1 / 12) - 1
+        monthly_inflation = (1 + self.annual_inflation) ** (1 / MONTHS_PER_YEAR) - 1
 
         # Forecast cumulative expenses growth (monthly)
         cumulative_inflation_forecast = np.cumprod(
@@ -120,15 +122,17 @@ class NetWorthSimulation(SalaryExpensesForecasting):
         return investment_deposit_forecast, savings_forecast_new, cumulative_savings_new
 
     def net_worth_savings_investments(self):
-
+        MONTHS_PER_YEAR = 12
         # gather the years as distinct months
-        forecast_months = self.years * 12
+        forecast_months = MONTHS_PER_YEAR * self.years
 
         # Set the annual investment return
         investment_rate_annual = self.annual_investment_return
 
         # Compute the monthly investment return
-        investment_rate_monthly = (1 + investment_rate_annual) ** (1 / 12) - 1
+        investment_rate_monthly = (1 + investment_rate_annual) ** (
+            1 / MONTHS_PER_YEAR
+        ) - 1
 
         # Retrieve the cumulated savings
         (

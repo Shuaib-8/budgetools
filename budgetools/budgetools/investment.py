@@ -26,6 +26,7 @@ def monthly_amount_to_investment(
        The monthly amount needed to consistently invest based on setting of
        years, ror, and target investment amount.
     """
+    MONTHS_PER_YEAR = 12
     fv = desired_amount
 
     if avg_ror < 0 or years < 0 or desired_amount < 0:
@@ -35,7 +36,12 @@ def monthly_amount_to_investment(
         )
 
     return -1 * (
-        npf.pmt(rate=((1 + avg_ror) ** (1 / 12) - 1), nper=12 * years, pv=0, fv=fv)
+        npf.pmt(
+            rate=((1 + avg_ror) ** (1 / MONTHS_PER_YEAR) - 1),
+            nper=MONTHS_PER_YEAR * years,
+            pv=0,
+            fv=fv,
+        )
     )
 
 

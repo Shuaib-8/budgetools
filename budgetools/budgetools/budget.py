@@ -8,9 +8,10 @@ class BaseBudget:
         self._emergency_expenses: int = 0
 
     def monthly_salary_after_tax(self):
+        MONTHS_PER_YEAR = 12
         salary_disposable = self.salary * (1 - self.tax_rate)
 
-        monthly_salary_disposable = salary_disposable / 12
+        monthly_salary_disposable = salary_disposable / MONTHS_PER_YEAR
 
         return monthly_salary_disposable
 
@@ -56,10 +57,10 @@ class BaseBudget:
         self._emergency_expenses = emergency_value
 
     def monthly_expenses(self):
-
+        DAYS_PER_MONTH = 30
         expenses_per_month = (
             self._rent
-            + (self._food_daily * 30)
+            + (self._food_daily * DAYS_PER_MONTH)
             + self._entertainment
             + self._emergency_expenses
         )
