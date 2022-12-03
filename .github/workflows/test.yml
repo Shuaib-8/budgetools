@@ -34,8 +34,17 @@ jobs:
           conda info
           conda list
           conda activate finance-app
-          cd budgetools
-          pip install -e .
+          # cd budgetools
+          # pip install -e .
+      
+      - name: Sort imports with isort
+        run: | 
+          isort --profile 'black' --filter-files .
+
+      - name: Code formatting/linting with black/flake8
+        run: | 
+          black . 
+          flake8
 
       - name: Test with pytest
         run: |
