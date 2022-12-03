@@ -39,7 +39,7 @@ jobs:
       
       - name: Sort imports with isort
         run: | 
-          isort . 
+          isort --profile 'black' --filter-files .
 
       - name: Test with pytest
         run: |
