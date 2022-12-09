@@ -36,20 +36,23 @@ $ python -m pip install "git+https://github.com/Shuaib-8/finance-budget-app.git#
 ```bash
 $ conda env create -f env.yml
 ```
+Once environment is created run the following
+
 ```bash
-# Once environment is created run the following
 $ conda activate finance-app
 ```
 
+You can create a venv beforehand and install
+
 ```bash
-# You can create a venv beforehand and install
 $ python -m pip install -r requirements.txt
 ```
 
 Finally, if you want to run the app, then perform the following
+<br>
+Move to the app location if not already
 
 ```bash
-# Move to the app location if not already 
 $ cd app
 $ streamlit run 1_🤑_main_page.py
 ```
