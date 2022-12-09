@@ -11,8 +11,7 @@
 5. Forecasting savings accumulation
 6. Forecasting investing along savings accumulation
 7. Forecasting net worth - savings (#5) and investment (#6)
-<br>
-<br>
+
 ## Installation
 ---
 
