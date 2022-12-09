@@ -15,7 +15,7 @@
 ## Installation
 ---
 
-The project/app is combatible with `python 3.x` (optimal results for `3.10`).
+The project/app is compatible with `python 3.x` (optimal results for `3.10`).
 
 It's first recommended to clone the repo 
 
@@ -47,7 +47,8 @@ You can create a venv beforehand and install
 ```bash
 $ python -m pip install -r requirements.txt
 ```
-
+### **App Access**
+<br>
 Finally, if you want to run the app, then perform the following
 <br>
 Move to the app location if not already
