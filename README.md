@@ -6,7 +6,7 @@
 
 1. How much to save/invest every month to reach a monetary amount in a given number of years
 2. Inflation adjusted considerations for a given monetary amount i.e. **purchasing power**
-3. Basic monthly budget consideration 
+3. Basic monthly budget considerations 
 4. Forecasting salary/income growth and cost of living (expenses due to inflation) growth i.e. living standards
 5. Forecasting savings accumulation
 6. Forecasting investing along savings accumulation
