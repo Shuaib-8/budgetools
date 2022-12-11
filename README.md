@@ -275,3 +275,17 @@ print(final_net_worth)
 ```
 
 Hence, within the same time frame, there's a gain to be made from **long-term** investing alongside saving.
+
+## Testing
+---
+To run and also test that everything is working within this project, it's also recommended to check `tests`. 
+<br>
+From the top level/root of the directory, run the following command:
+
+```bash
+pytest
+```
+
+### References 
+
+Special thanks to **Dakota Wixom** who developed the course [**Introduction to Financial Concepts in Python**](https://app.datacamp.com/learn/courses/introduction-to-financial-concepts-in-python) via **DataCamp**. The course has helped inspire and develop this project, where I have adapted the given material from the code/exercises within the course.
