@@ -7,7 +7,7 @@ from budgetools.investment import (
     monthly_amount_to_investment,
 )
 
-path = Path(__file__).resolve().parents[1] / "src"
+path = Path(__file__).resolve().parents[1] / "budgetools"
 
 
 if __name__ == "__main__":
@@ -23,11 +23,13 @@ if __name__ == "__main__":
     # 477605.57
 
     # ~~~~~~~~~~~~ Basic Budget ~~~~~~~~~~~~
-    base = BaseBudget(salary=60000, tax_rate=0.4)
+    base = BaseBudget(salary=60000, tax_rate=0.3)
     base.rent = 1200
     base.food_daily = 10
     base.entertainment = 200
     base.emergency_expenses = 250
+    base.monthly_savings()
+    # 1550.0
 
     # ~~~~~~~~~~~~ Forecast Salary/Cost of Living ~~~~~~~~~~~~
     forecast_living = SalaryExpensesForecasting(years=15, salary=60000, tax_rate=0.3)
