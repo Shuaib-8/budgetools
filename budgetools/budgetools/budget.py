@@ -5,18 +5,18 @@ class BaseBudget:
 
     Attributes
     ----------
-    salary : int
+    `salary` : int
         Annual salary (gross).
-    tax_rate : float
+    `tax_rate` : float
         Tax rate percentage as a decimal e.g. 30% = 0.3.
 
     Methods
     -------
-    monthly_salary_after_tax
+    `monthly_salary_after_tax`
         Salary leftover after tax on a monthly basis.
-    monthly_expenses
+    `monthly_expenses`
         Expenses on a monthly basis.
-    monthly_savings
+    `monthly_savings`
         Monthly salary after tax (monthly_salary_after_tax)
         subtract monthly expenses (monthly_expenses).
     """
@@ -27,9 +27,9 @@ class BaseBudget:
 
         Parameters
         ----------
-        salary : int
+        `salary` : int
             Sets Annual salary (gross) of the BaseBudget object.
-        tax_rate : float
+        `tax_rate` : float
             Sets Tax rate (decimal) of the BaseBudget object.
         """
         self.salary: int = salary
